@@ -1,34 +1,34 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React, { useState } from "react";
 import "./App.css";
+import User from "./user/User";
+import Post from "./post/Post";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [state, setState] = useState({
+    name: "future-skill",
+  });
+
+  // Access the state
+  const { name } = state;
+  const onNamechange = (newName) => {
+    setState({ name: newName });
+  };
 
   return (
-    <>
+    <div>
+      <div>Hello {name}</div>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Link to="/">Home</Link>
+        <Link to="/users">Users</Link>
+        <Link to="/posts">Posts</Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more test
-      </p>
-    </>
+      <p className="read-the-docs">{/* Content for the paragraph */}</p>
+      <Routes>
+        <Route path="/users" element={<User />} />
+        <Route path="/posts" element={<Post />} />
+      </Routes>
+    </div>
   );
 }
 
