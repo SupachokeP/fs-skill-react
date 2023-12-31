@@ -1,35 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import DataFetcher from "../lib/withRequest"; // Assuming it's in the same directory
 
 const Post = (props) => {
   const [userName, setUserName] = useState("DefaultUser");
-  const [state, setData] = useState({
-    data: [],
-  });
-
-  useEffect(() => {
-    console.log("Component did mount or update");
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
-        setData({ data: response.data });
-        console.log(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-
-    // If you need to clean up, return a function from useEffect
-    return () => {
-      console.log("Component will unmount");
-      // Cleanup logic here
-    };
-  }, [userName]);
+  const [data, setData] = useState([]);
 
   const onChange = (event) => {
     const newName = event.target.value;
@@ -41,6 +15,10 @@ const Post = (props) => {
 
   return (
     <div>
+      <DataFetcher
+        url="https://jsonplaceholder.typicode.com/posts"
+        setData={setData}
+      />
       <table>
         <thead>
           <tr>
@@ -51,12 +29,12 @@ const Post = (props) => {
           </tr>
         </thead>
         <tbody>
-          {state.data.map((user) => (
-            <tr key={user.userId}>
-              <td>{user.userId}</td>
-              <td>{user.id}</td>
-              <td>{user.title}</td>
-              <td>{user.body}</td>
+          {data.map((post) => (
+            <tr key={post.id}>
+              <td>{post.userId}</td>
+              <td>{post.id}</td>
+              <td>{post.title}</td>
+              <td>{post.body}</td>
             </tr>
           ))}
         </tbody>
