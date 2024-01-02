@@ -1,24 +1,16 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.vite/deps_temp_630be195/axios.js
+.vite/deps_temp_630be195/axios.js.map
+.vite/deps_temp_630be195/chunk-FQO5W7GE.js
+.vite/deps_temp_630be195/chunk-FQO5W7GE.js.map
+.vite/deps_temp_630be195/chunk-IBXAGRP2.js
+.vite/deps_temp_630be195/chunk-IBXAGRP2.js.map
+.vite/deps_temp_630be195/chunk-ZS7NZCD4.js
+.vite/deps_temp_630be195/chunk-ZS7NZCD4.js.map
+.vite/deps_temp_630be195/package.json
+.vite/deps_temp_630be195/react-dom.js
+.vite/deps_temp_630be195/react-dom.js.map
+.vite/deps_temp_630be195/react-router-dom.js
+.vite/deps_temp_630be195/react-router-dom.js.map
+.vite/deps_temp_630be195/react.js
+.vite/deps_temp_630be195/react.js.map
